@@ -87,6 +87,7 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             Toast.makeText(RegisterActivity.this, "Giriş Başarılı", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(RegisterActivity.this, HomeActivity.class));
                         }else {
                             Toast.makeText(RegisterActivity.this, "Giriş Başarısız", Toast.LENGTH_SHORT).show();
                         }
