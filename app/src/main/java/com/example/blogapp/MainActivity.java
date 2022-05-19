@@ -9,11 +9,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText loginEmail,loginPass;
     Button loginBtn;
     TextView forgot, sign;
+    FirebaseAuth auth;
 
 
     @Override
@@ -27,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
         forgot = findViewById(R.id.forgot_password);
         sign = findViewById(R.id.sign_account);
 
+        auth= FirebaseAuth.getInstance();
+
+
         sign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -34,5 +41,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser user = auth.getCurrentUser();
+        if(user != null){
+            startActivity(new Intent(MainActivity.this, HomeActivity.class));
+        }
     }
 }

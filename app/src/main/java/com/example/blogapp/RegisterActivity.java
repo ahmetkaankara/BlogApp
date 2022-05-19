@@ -86,15 +86,18 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
+                            progressDialog.dismiss();
                             Toast.makeText(RegisterActivity.this, "Giriş Başarılı", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(RegisterActivity.this, HomeActivity.class));
                         }else {
+                            progressDialog.dismiss();
                             Toast.makeText(RegisterActivity.this, "Giriş Başarısız", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
+                progressDialog.dismiss();
                 Toast.makeText(RegisterActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
