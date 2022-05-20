@@ -14,6 +14,8 @@
 
 
 
+
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottombarmenu"
         android:layout_width="match_parent"
