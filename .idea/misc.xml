@@ -3,18 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/drawable-anydpi/ic_addPost.xml" value="0.207" />
-        <entry key="app/src/main/res/layout/activity_add_post.xml" value="0.18541666666666667" />
+        <entry key="..\:/Users/melii/AndroidStudioProjects/BlogApp/app/src/main/res/drawable-anydpi/ic_home.xml" value="0.15" />
+        <entry key="..\:/Users/melii/AndroidStudioProjects/BlogApp/app/src/main/res/drawable/ic_person_background.xml" value="0.15" />
+        <entry key="..\:/Users/melii/AndroidStudioProjects/BlogApp/app/src/main/res/drawable/ic_person_foreground.xml" value="0.15" />
+        <entry key="..\:/Users/melii/AndroidStudioProjects/BlogApp/app/src/main/res/layout/activity_add_post.xml" value="0.25" />
+        <entry key="..\:/Users/melii/AndroidStudioProjects/BlogApp/app/src/main/res/layout/activity_forgot_pass.xml" value="0.25" />
+        <entry key="..\:/Users/melii/AndroidStudioProjects/BlogApp/app/src/main/res/layout/activity_home.xml" value="0.25" />
+        <entry key="..\:/Users/melii/AndroidStudioProjects/BlogApp/app/src/main/res/layout/activity_main.xml" value="0.2351851851851852" />
+        <entry key="..\:/Users/melii/AndroidStudioProjects/BlogApp/app/src/main/res/layout/activity_register.xml" value="0.2351851851851852" />
+        <entry key="..\:/Users/melii/AndroidStudioProjects/BlogApp/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/melii/AndroidStudioProjects/BlogApp/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="..\:/Users/melii/AndroidStudioProjects/BlogApp/app/src/main/res/menu/bottombarmenu.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.178125" />
-        <entry key="app/src/main/res/layout/activity_setup.xml" value="0.5" />
-        <entry key="app/src/main/res/layout/fragment_add_post.xml" value="0.19947916666666668" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/menu/bottombarmenu.xml" value="0.19895833333333332" />
         <entry key="app/src/main/res/menu/bottomnavbarmenu.xml" value="0.28229166666666666" />
-        <entry key="app/src/main/res/menu/top_menu.xml" value="0.178125" />
       </map>
     </option>
   </component>

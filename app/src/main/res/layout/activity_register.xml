@@ -19,10 +19,11 @@
         android:id="@+id/register_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:layout_centerInParent="true"
+        android:ems="10"
+        android:hint="E-mail"
         android:inputType="textEmailAddress"
-        android:hint="E-mail" />
+        android:minHeight="48dp" />
 
     <EditText
         android:id="@+id/register_password"
@@ -30,7 +31,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/register_email"
         android:hint="Şifre"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword"
+        android:minHeight="48dp" />
 
     <Button
         android:id="@+id/register_btn"

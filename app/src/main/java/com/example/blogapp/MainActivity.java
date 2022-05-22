@@ -21,8 +21,6 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
-
-
     EditText loginEmail,loginPass;
     Button loginBtn;
     TextView forgot, sign;
@@ -47,6 +45,13 @@ public class MainActivity extends AppCompatActivity {
         sign = findViewById(R.id.sign_account);
 
         progressDialog = new ProgressDialog(this);
+
+        forgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ForgotPassActivity.class));
+            }
+        });
 
 
         sign.setOnClickListener(new View.OnClickListener() {
