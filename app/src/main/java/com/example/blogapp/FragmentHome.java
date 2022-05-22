@@ -1,22 +1,19 @@
 package com.example.blogapp;
 
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
-
 import com.example.blogapp.Adapter.PostAdapter;
 import com.example.blogapp.Model.PostModel;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,9 +30,7 @@ import java.util.List;
  */
 public class FragmentHome extends Fragment {
 
-    RecyclerView recyclerView;
-    PostAdapter postAdapter;
-    List<PostModel> postModelList;
+
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -46,6 +41,12 @@ public class FragmentHome extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    RecyclerView postRecyclerView ;
+    PostAdapter postAdapter ;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference ;
+    List<PostModel> postList;
 
     public FragmentHome() {
         // Required empty public constructor
@@ -72,67 +73,68 @@ public class FragmentHome extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
-    private void setContentView(int activity_home) {
-    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View fragmentHomeView = inflater.inflate(R.layout.fragment_home, container, false);
-        recyclerView = fragmentHomeView.findViewById(R.id.recycleView);
-
-
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        layoutManager.setStackFromEnd(true);
-        layoutManager.setReverseLayout(true);
-
-
-        recyclerView.setLayoutManager(layoutManager);
-
-        postModelList = new ArrayList<>();
-
-        loadPosts();
-        return fragmentHomeView;
+        View fragmentView = inflater.inflate(R.layout.fragment_home, container, false);
+        postRecyclerView  = fragmentView.findViewById(R.id.recycleView);
+        postRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        postRecyclerView.setHasFixedSize(true);
+        firebaseDatabase = FirebaseDatabase.getInstance("https://blogapp-7273d-default-rtdb.europe-west1.firebasedatabase.app");
+        databaseReference = firebaseDatabase.getReference("Posts");
+        return fragmentView ;
 
     }
 
-    private void loadPosts() {
-
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Postlar");
-        ref.addValueEventListener(new ValueEventListener() {
+    @Override
+    public void onStart() {
+        super.onStart();
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                postModelList.clear();
-                for (DataSnapshot ds: snapshot.getChildren()){
-                    PostModel postModel= ds.getValue(PostModel.class);
-                    postModelList.add(postModel);
-                    postAdapter = new PostAdapter((ValueEventListener) FragmentHome.this, postModelList);
-                    recyclerView.setAdapter(postAdapter);
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
+                postList = new ArrayList<>();
+                for (DataSnapshot postsnap: dataSnapshot.getChildren()) {
+
+                    PostModel post = postsnap.getValue(PostModel.class);
+                    postList.add(post) ;
                 }
+
+                postAdapter = new PostAdapter(getActivity(),postList);
+                postRecyclerView.setAdapter(postAdapter);
 
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-                Toast.makeText((Context)FragmentHome.this ," "+error, Toast.LENGTH_SHORT).show();
-
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
     }
 
+    // TODO: Rename method, update argument and hook method into UI event
+
+
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    public void onAttach(Context context) {
+        super.onAttach(context);
     }
+
+
+    public interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
+        void onFragmentInteraction(Uri uri);
+    }
+
+
+
 }

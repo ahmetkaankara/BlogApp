@@ -140,6 +140,7 @@ public class AddPostActivity extends AppCompatActivity {
 
                                 hashMap.put("uid" , user.getUid());
                                 hashMap.put("uEmail" , user.getEmail());
+                                hashMap.put("uName",user.getDisplayName());
                                 hashMap.put("pId" , timeStamp);
                                 hashMap.put("pTitle" , title);
                                 hashMap.put("pImage" , downloadUri);

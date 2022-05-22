@@ -1,15 +1,17 @@
 package com.example.blogapp.Model;
 
 public class PostModel {
-    String pImage, pTitle, pDesc;
+
+    String pImage, pTitle, pDescription,uName;
 
     public PostModel() {
     }
 
-    public PostModel(String pImage, String pTitle, String pDesc) {
+    public PostModel(String pImage, String pTitle, String pDescription,String uName) {
         this.pImage = pImage;
         this.pTitle = pTitle;
-        this.pDesc = pDesc;
+        this.pDescription = pDescription;
+        this.uName = uName;
     }
 
     public String getpImage() {
@@ -20,6 +22,7 @@ public class PostModel {
         this.pImage = pImage;
     }
 
+
     public String getpTitle() {
         return pTitle;
     }
@@ -28,11 +31,20 @@ public class PostModel {
         this.pTitle = pTitle;
     }
 
-    public String getpDesc() {
-        return pDesc;
+    public String getpDescription() {
+        return pDescription;
     }
 
-    public void setpDesc(String pDesc) {
-        this.pDesc = pDesc;
+    public String getuName() {
+        return uName;
     }
+
+    public void setuName(String uName) {
+        this.uName = uName;
+    }
+
+    public void setpDescription(String pDescription) {
+        this.pDescription = pDescription;
+    }
+
 }

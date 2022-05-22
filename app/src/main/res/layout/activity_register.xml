@@ -6,20 +6,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
+
     <TextView
         android:id="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:textSize="25dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Kayıt Ol"
+        android:textSize="25dp" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Adınız"
+        android:minHeight="48dp" />
+
+    <EditText
+        android:id="@+id/surname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/username"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Soy Adınız"
+        android:minHeight="48dp" />
 
     <EditText
         android:id="@+id/register_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:layout_below="@id/surname"
         android:ems="10"
         android:hint="E-mail"
         android:inputType="textEmailAddress"
@@ -54,5 +78,15 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="10sp"
         android:text="Hesabın var mı? Giriş Yap"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitStart"
+        tools:srcCompat="@tools:sample/avatars" />
 
 </RelativeLayout>

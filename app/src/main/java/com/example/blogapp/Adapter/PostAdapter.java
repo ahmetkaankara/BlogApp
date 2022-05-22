@@ -10,19 +10,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import com.bumptech.glide.Glide;
 import com.example.blogapp.Model.PostModel;
 import com.example.blogapp.R;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
-public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyHolder>  {
+public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyHolder> {
 
     Context context;
     List<PostModel> postModelList;
 
-    public PostAdapter(ValueEventListener context, List<PostModel> postModelList) {
+    public PostAdapter(Context context, List<PostModel> postModelList) {
         this.context = context;
         this.postModelList = postModelList;
     }
@@ -30,18 +30,24 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyHolder>  {
     @NonNull
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.activity_home, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.row_post , parent , false);
         return new MyHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
-        String tittle = postModelList.get(position).getpTitle();
-        String desc = postModelList.get(position).getpDesc();
+
+        String title = postModelList.get(position).getpTitle();
+        String description = postModelList.get(position).getpDescription();
+        String username = postModelList.get(position).getuName();
         String image = postModelList.get(position).getpImage();
-        holder.postTitle.setText(tittle);
-        holder.postDesc.setText(desc);
+
+        holder.postTitle.setText(title);
+        holder.postDescription.setText(description);
+        holder.postUsername.setText("Yayınlayan:" +username);
+
         Glide.with(context).load(image).into(holder.postImage);
+
     }
 
     @Override
@@ -51,16 +57,16 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyHolder>  {
 
     class MyHolder extends RecyclerView.ViewHolder{
 
-            ImageView postImage;
-            TextView postTitle, postDesc;
-
-
-
+        ImageView postImage;
+        TextView postTitle , postDescription,postUsername;
         public MyHolder(@NonNull View itemView) {
             super(itemView);
+
             postImage = itemView.findViewById(R.id.postImage);
             postTitle = itemView.findViewById(R.id.postTitle);
-            postDesc = itemView.findViewById(R.id.postDesc);
+            postDescription = itemView.findViewById(R.id.postDescription);
+            postUsername = itemView.findViewById(R.id.postUsername);
+
 
         }
     }
