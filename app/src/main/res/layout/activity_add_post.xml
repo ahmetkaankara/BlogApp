@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/browser_actions_divider_color"
     android:layout_height="match_parent"
     tools:context=".AddPostActivity">
 
@@ -15,6 +16,7 @@
         <EditText
             android:id="@+id/title_blog"
             android:hint="Başlık"
+            android:background="@color/white"
             android:inputType="textPersonName"
             android:gravity="start"
             android:layout_width="match_parent"
@@ -30,6 +32,7 @@
 
         <EditText
             android:id="@+id/description_blog"
+            android:background="@color/white"
             android:minHeight="120dp"
             android:gravity="start"
             android:inputType="textCapSentences|textMultiLine"
@@ -43,9 +46,9 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:background="@color/purple_200"
             android:text="Blog Yükle"
-            android:textColor="#311B92" />
+            android:textColor="#311B92"
+            android:background="@drawable/custom_button"/>
 
     </LinearLayout>
 

@@ -5,7 +5,7 @@
         android:id="@+id/bottombarmenu_home"
         android:icon="@drawable/ic_home"
         android:title="AnaSayfa"
-        app:showAsAction="always"/>
+        app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/bottombarmenu_profile"
         android:icon="@drawable/ic_person"
